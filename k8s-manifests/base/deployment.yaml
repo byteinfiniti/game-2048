@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-2048
+  namespace: games
+  labels:
+    app: game-2048
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: game-2048
+  template:
+    metadata:
+      labels:
+        app: game-2048
+    spec:
+      containers:
+      - name: game-2048
+        image: 992382718407.dkr.ecr.eu-west-1.amazonaws.com/2048-game:v1.0
+        ports:
+        - containerPort: 80
